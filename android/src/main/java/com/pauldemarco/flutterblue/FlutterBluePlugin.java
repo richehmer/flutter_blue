@@ -36,8 +36,10 @@ import com.google.protobuf.InvalidProtocolBufferException;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 
 import io.flutter.plugin.common.EventChannel;
@@ -69,6 +71,7 @@ public class FlutterBluePlugin implements MethodCallHandler, RequestPermissionsR
     private final BluetoothManager mBluetoothManager;
     private BluetoothAdapter mBluetoothAdapter;
     private final Map<String, BluetoothGatt> mGattServers = new HashMap<>();
+    private final Set<String> connectedDeviceIds = new HashSet<>();
 
     // Pending call and result for startScan, in the case where permissions are needed
     private MethodCall pendingCall;
